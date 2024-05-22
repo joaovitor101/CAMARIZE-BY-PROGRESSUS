@@ -1,0 +1,184 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+
+}
+
+#logo{  
+    padding: 20px;
+    font-family: 'Nico Moji';
+
+}
+
+
+.navbar {
+
+    margin-left: auto;
+}
+
+.navbar-brand {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+#banner{
+    width: 30px;
+}
+
+#navbarSupportedContent{
+    font-family: 'Poppins';
+    font-weight: 500;
+
+}
+.navbar {
+    background-color: transparent !important; /* torna a cor de fundo transparente */
+}
+
+
+#vetor1{
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; /* Isso centraliza a imagem horizontalmente */
+}
+#img2{
+    width: 50%;
+}
+#fullbox2{
+    height: 100vh;
+}
+#aaa{
+    display: flex;
+    justify-content: center;
+
+}
+
+#aaa2{
+    margin-top: 110px;
+    display: flex;
+    justify-content: center;
+
+}
+#box1{
+    height: 100vh;
+    background-color: #FFC2C2;
+}
+#areaTexto1{
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
+#about{
+    font-family: 'poppins';
+    font-weight: 400;
+}
+#resposta{
+    font-family: 'poppins';
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+#box2{
+    display: flex;
+    justify-content: center;
+    background-color: #ffb3b3;
+
+}
+#box4{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffb3b3;
+}
+#box3{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+
+}
+
+#testea{
+    width: 75%;
+}
+
+
+#servicos{
+    font-family: 'poppins';
+    font-weight: 600;
+}
+
+#bac{
+    font-family: 'poppins';
+}
+
+#obj1{
+
+    font-size: 20px;
+    font-family: 'poppins';
+    font-weight: 500;
+}
+.row{
+
+    display: flex;
+    align-items: center;
+}
+
+.row2{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.juntos{
+    background-color: #252525;
+}
+
+
+
+@media screen and (max-width: 700px){
+    #img1{
+        width: 100px;
+    }
+    #box1{
+        height: 150vh;
+        background-color: #FFC2C2;
+        overflow-y: hidden;
+    }
+    
+    #resposta{
+        font-family: 'poppins';
+        font-weight: 300;
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
+
+
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-track-piece{
+    background-color: #252525;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+      border-radius: 100px;
+    background-color: rgb(167, 167, 167);
+  
+  }
+  
+  ::-webkit-scrollbar-thumb:hover{
+      background-color: #525252;
+  }
