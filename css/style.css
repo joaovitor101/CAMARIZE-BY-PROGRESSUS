@@ -63,9 +63,12 @@
     justify-content: center;
 
 }
+
 #box1{
     height: 100vh;
-    background-color: #FFC2C2;
+    background: linear-gradient(to bottom, #ffc2c2 0%, #fda8a8 100%);
+    display: flex;
+    align-items: center;
 }
 #areaTexto1{
     display: flex;
@@ -74,17 +77,17 @@
 }
 #about{
     font-family: 'poppins';
-    font-weight: 400;
+    font-weight: 600;
 }
 #resposta{
     font-family: 'poppins';
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.5rem;
 }
 #box2{
     display: flex;
     justify-content: center;
-    background-color: #ffb3b3;
+    background-color: #fda8a8;
 
 }
 #box4{
@@ -100,24 +103,26 @@
     background-color: #ffffff;
 
 }
-
+#services{
+    font-family: 'poppins';
+    font-weight: 600;
+}
 #testea{
     width: 75%;
 }
 
 
-#servicos{
-    font-family: 'poppins';
-    font-weight: 600;
-}
-
 #bac{
     font-family: 'poppins';
 }
+#total6{
 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+}
 #obj1{
-
-    font-size: 20px;
     font-family: 'poppins';
     font-weight: 500;
 }
@@ -138,28 +143,59 @@
     background-color: #252525;
 }
 
-
-
+#aaab{
+    font-family: 'poppins';
+    display: flex;
+    justify-content: center;
+}
 @media screen and (max-width: 700px){
+
+    #col{
+        margin-top: 20px;
+    }
+    #total6{
+        margin-top: 100px;
+        height: auto ;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .card-title{
+        overflow-y: hidden;
+        margin-top: 10px;
+    }
+
+
     #img1{
-        width: 100px;
+        width: 90px;
     }
     #box1{
-        height: 150vh;
+        height: auto;
         background-color: #FFC2C2;
-        overflow-y: hidden;
     }
     
     #resposta{
         font-family: 'poppins';
-        font-weight: 300;
+        font-weight: 500;
         font-size: 1rem;
-        text-align: justify;
     }
 }
-
-
-
+.card-body{
+    height: 250px;
+}
+.card-text{
+    margin-top: 20px;
+}
+.card-title{
+    height: 50px;
+    overflow-y: hidden;
+    margin-top: 10px;
+}
+#inte{
+    font-weight: 600;
+    position: absolute;
+    font-family: 'poppins';
+}
 ::-webkit-scrollbar{
     width: 8px;
     height: 7px;
