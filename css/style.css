@@ -39,7 +39,6 @@
     background-color: transparent !important; /* torna a cor de fundo transparente */
 }
 
-
 #vetor1{
     max-width: 100%;
     height: auto;
@@ -54,9 +53,11 @@
 #aaa{
     display: flex;
     justify-content: center;
-
+    
 }
-
+#img1, #img2, #img3, #vetor1{
+    filter: drop-shadow(0px 0px 10px rgba(36, 10, 10, 0.5));
+}
 #aaa2{
     margin-top: 110px;
     display: flex;
@@ -64,12 +65,17 @@
 
 }
 
+  
 #box1{
     height: 100vh;
     background: linear-gradient(to bottom, #ffc2c2 0%, #fda8a8 100%);
     display: flex;
     align-items: center;
 }
+
+/* .juntinhos{
+    display: flex;
+} */
 #areaTexto1{
     display: flex;
     justify-content: center;
@@ -139,9 +145,6 @@
 
 
 
-.juntos{
-    background-color: #252525;
-}
 
 #aaab{
     font-family: 'poppins';
@@ -165,7 +168,6 @@
         margin-top: 10px;
     }
 
-
     #img1{
         width: 90px;
     }
@@ -180,9 +182,18 @@
         font-size: 1rem;
     }
 }
+.card:hover {
+    transform: ;
+  }
+  .card{
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .5s;
+  }
 .card-body{
     height: 250px;
 }
+
 .card-text{
     margin-top: 20px;
 }
