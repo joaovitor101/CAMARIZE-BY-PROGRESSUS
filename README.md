@@ -4,7 +4,8 @@ ESTE É UM SITE DA CAMARIZE BY PROGRESSUS, ONDE É APRESENTADO A EQUIPE E SEUS O
 
 <br>
 
-![image](https://github.com/joaovitor101/CAMARIZE-BY-PROGRESSUS/assets/99661944/141e61b8-f581-452d-8674-1bc94a4610f6)
+![image](https://github.com/joaovitor101/CAMARIZE-BY-PROGRESSUS/assets/99661944/4b7853b2-5dff-480c-ad7b-1cd6f3932708)
+
 
 <br>
 
