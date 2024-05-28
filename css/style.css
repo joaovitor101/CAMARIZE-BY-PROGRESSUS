@@ -65,7 +65,9 @@
 
 }
 
-  
+  #imga{
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 1));
+  }
 #box1{
     height: 100vh;
     background: linear-gradient(to bottom, #ffc2c2 0%, #fda8a8 100%);
@@ -168,6 +170,9 @@
         margin-top: 10px;
     }
 
+    #imga{
+        width: 90px;
+    }
     #img1{
         width: 90px;
     }
@@ -182,9 +187,7 @@
         font-size: 1rem;
     }
 }
-.card:hover {
-    transform: ;
-  }
+
   .card{
   transform-style: preserve-3d;
   will-change: transform;
