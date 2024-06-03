@@ -9,5 +9,6 @@ ESTE É UM SITE DA CAMARIZE BY PROGRESSUS, ONDE É APRESENTADO A EQUIPE E SEUS O
 
 <br>
 
-![image](https://github.com/joaovitor101/CAMARIZE-BY-PROGRESSUS/assets/99661944/b24f9137-f21f-43e4-b89f-afe0012eff69)
+![image](https://github.com/joaovitor101/CAMARIZE-BY-PROGRESSUS/assets/99661944/9668a80a-7862-4902-ad81-82eac1c2b5f8)
+
 
