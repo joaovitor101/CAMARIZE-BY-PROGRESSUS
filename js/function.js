@@ -17,6 +17,14 @@ function animateOnScroll() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                
+                // Animar elementos filhos com delay
+                const animatedElements = entry.target.querySelectorAll('.animate-on-scroll');
+                animatedElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animated');
+                    }, index * 150);
+                });
             }
         });
     }, {
@@ -113,7 +121,7 @@ function initParallax() {
     });
 }
 
-// Função para animar cards com hover
+// Função para animar cards com hover simples
 function initCardAnimations() {
     const cards = document.querySelectorAll('.servico-card, .membro-card, .sobre-card');
     
@@ -140,7 +148,7 @@ function initSmoothScroll() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Ajuste para navbar fixa
+                const offsetTop = targetSection.offsetTop - 80; // Ajuste para navbar fixa
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -157,10 +165,10 @@ function initEntranceAnimations() {
     
     animatedElements.forEach((element, index) => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
+        element.style.transform = 'translateY(40px)';
         
         setTimeout(() => {
-            element.style.transition = 'all 0.8s ease';
+            element.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
         }, index * 200);
@@ -168,7 +176,7 @@ function initEntranceAnimations() {
 }
 
 // Função para efeito de digitação
-function typeWriter(element, text, speed = 100) {
+function typeWriter(element, text, speed = 80) {
     let i = 0;
     element.innerHTML = '';
     
@@ -188,22 +196,22 @@ function initTypeWriter() {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 100);
+        typeWriter(heroTitle, originalText, 80);
     }
 }
 
-// Função para animar ícones
+// Função para animar ícones com rotação 3D
 function animateIcons() {
     const icons = document.querySelectorAll('.card-icon i, .servico-icon img');
     
     icons.forEach(icon => {
         icon.addEventListener('mouseenter', () => {
-            icon.style.transform = 'rotate(360deg) scale(1.2)';
-            icon.style.transition = 'all 0.3s ease';
+            icon.style.transform = 'rotateY(360deg) scale(1.2)';
+            icon.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         });
         
         icon.addEventListener('mouseleave', () => {
-            icon.style.transform = 'rotate(0deg) scale(1)';
+            icon.style.transform = 'rotateY(0deg) scale(1)';
         });
     });
 }
@@ -226,28 +234,63 @@ function initLazyLoading() {
     images.forEach(img => imageObserver.observe(img));
 }
 
-// Função para efeito de partículas no hero
+// Função para efeito de partículas avançadas no hero
 function initParticles() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     
-    // Criar partículas flutuantes
-    for (let i = 0; i < 50; i++) {
+    // Criar partículas flutuantes mais sofisticadas
+    for (let i = 0; i < 80; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
+        
+        const size = Math.random() * 6 + 3;
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        const duration = Math.random() * 20 + 15;
+        const delay = Math.random() * 5;
+        
         particle.style.cssText = `
             position: absolute;
-            width: ${Math.random() * 4 + 2}px;
-            height: ${Math.random() * 4 + 2}px;
-            background: rgba(255, 255, 255, 0.3);
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(255, 255, 255, ${Math.random() * 0.4 + 0.2});
             border-radius: 50%;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: float ${Math.random() * 6 + 3}s ease-in-out infinite;
-            animation-delay: ${Math.random() * 2}s;
+            left: ${startX}%;
+            top: ${startY}%;
+            animation: particleFloat ${duration}s linear infinite;
+            animation-delay: ${delay}s;
+            box-shadow: 0 0 ${size * 2}px rgba(255, 255, 255, 0.3);
         `;
         hero.appendChild(particle);
     }
+    
+    // Adicionar partículas que seguem o mouse
+    hero.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.7) { // 30% de chance de criar partícula
+            const particle = document.createElement('div');
+            particle.className = 'mouse-particle';
+            
+            const size = Math.random() * 4 + 2;
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 50%;
+                left: ${e.clientX}px;
+                top: ${e.clientY}px;
+                pointer-events: none;
+                animation: mouseParticle 2s ease-out forwards;
+                z-index: 10;
+            `;
+            hero.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 2000);
+        }
+    });
 }
 
 // Função para scroll progress indicator
@@ -259,10 +302,11 @@ function initScrollProgress() {
         top: 0;
         left: 0;
         width: 0%;
-        height: 3px;
+        height: 4px;
         background: linear-gradient(90deg, #e74c3c, #ff6b6b);
         z-index: 1001;
         transition: width 0.1s ease;
+        box-shadow: 0 2px 10px rgba(231, 76, 60, 0.5);
     `;
     document.body.appendChild(progressBar);
     
@@ -317,6 +361,94 @@ function initTextReveal() {
     texts.forEach(text => observer.observe(text));
 }
 
+// Função para efeito de cursor brilhante
+function initGlowingCursor() {
+    const cursor = document.createElement('div');
+    cursor.className = 'glowing-cursor';
+    cursor.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, rgba(231, 76, 60, 0.8), transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.1s ease;
+        opacity: 0;
+    `;
+    document.body.appendChild(cursor);
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX - 10 + 'px';
+        cursor.style.top = e.clientY - 10 + 'px';
+        cursor.style.opacity = '1';
+    });
+    
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+}
+
+// Função para animar elementos com stagger
+function initStaggerAnimations() {
+    const staggerElements = document.querySelectorAll('.stagger-animate');
+    
+    staggerElements.forEach(container => {
+        const items = container.querySelectorAll('.stagger-item');
+        
+        items.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                el.style.transition = 'all 0.6s ease';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 150);
+        });
+    });
+}
+
+// Função para efeito de morphing no hero
+function initMorphingEffect() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    
+    // Criar formas geométricas que se transformam
+    const shapes = ['circle', 'square', 'triangle'];
+    let currentShape = 0;
+    
+    setInterval(() => {
+        const shape = document.createElement('div');
+        shape.className = 'morphing-shape';
+        
+        const size = Math.random() * 100 + 50;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        shape.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}%;
+            top: ${y}%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: ${shapes[currentShape] === 'circle' ? '50%' : '0'};
+            animation: morphingShape 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        hero.appendChild(shape);
+        
+        setTimeout(() => {
+            shape.remove();
+        }, 8000);
+        
+        currentShape = (currentShape + 1) % shapes.length;
+    }, 2000);
+}
+
 // Função principal para inicializar tudo
 function init() {
     // Aguardar o DOM carregar
@@ -338,9 +470,31 @@ function init() {
     initScrollProgress();
     animateNumbers();
     initTextReveal();
+    initGlowingCursor();
+    initStaggerAnimations();
+    initMorphingEffect();
     
     // Iniciar typewriter após um pequeno delay
     setTimeout(initTypeWriter, 500);
+    
+    // Adicionar classes para animações
+    addAnimationClasses();
+}
+
+// Função para adicionar classes de animação
+function addAnimationClasses() {
+    // Adicionar classes para stagger animations
+    const serviceCards = document.querySelectorAll('.servico-card');
+    serviceCards.forEach((card, index) => {
+        card.classList.add('stagger-item');
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+    
+    // Adicionar classes para reveal text
+    const texts = document.querySelectorAll('.servico-content p, .sobre-card p');
+    texts.forEach(text => {
+        text.classList.add('reveal-text');
+    });
 }
 
 // Inicializar quando a página carregar
@@ -350,6 +504,10 @@ init();
 const style = document.createElement('style');
 style.textContent = `
     .particle {
+        pointer-events: none;
+    }
+    
+    .mouse-particle {
         pointer-events: none;
     }
     
@@ -380,11 +538,18 @@ style.textContent = `
         padding: 20px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         gap: 15px;
+        animation: slideDown 0.3s ease;
     }
     
     .nav-menu.active .nav-link {
         padding: 10px 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu.active .nav-link:hover {
+        background: rgba(231, 76, 60, 0.1);
+        padding-left: 10px;
     }
     
     .nav-menu.active .nav-link:last-child {
@@ -403,10 +568,109 @@ style.textContent = `
         transform: rotate(-45deg) translate(7px, -6px);
     }
     
+    .stagger-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .stagger-item.staggered {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .morphing-shape {
+        animation: morphingShape 8s ease-in-out infinite;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes morphingShape {
+        0%, 100% {
+            transform: scale(0.8) rotate(0deg);
+            opacity: 0.3;
+        }
+        50% {
+            transform: scale(1.2) rotate(180deg);
+            opacity: 0.6;
+        }
+    }
+    
+    @keyframes mouseParticle {
+        0% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+        100% {
+            transform: scale(0) translateY(-20px);
+            opacity: 0;
+        }
+    }
+    
     @media (max-width: 768px) {
         .nav-menu {
             display: none;
         }
+        
+        .glowing-cursor {
+            display: none;
+        }
+    }
+    
+    /* Melhorias para cards */
+    .servico-card, .membro-card, .sobre-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .servico-card:hover, .membro-card:hover, .sobre-card:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+    
+    /* Efeito de brilho nos botões */
+    .cta-button::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: left 0.6s ease;
+    }
+    
+    .cta-button:hover::after {
+        left: 100%;
+    }
+    
+    /* Animações de entrada para seções */
+    .section {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Efeito de hover para ícones */
+    .card-icon:hover, .servico-icon:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    /* Efeito de hover para imagens */
+    .sobre-image:hover img, .membro-foto:hover img {
+        transform: scale(1.05);
     }
 `;
 document.head.appendChild(style);
