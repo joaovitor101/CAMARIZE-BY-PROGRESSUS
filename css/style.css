@@ -429,14 +429,16 @@ body {
 
 .membro-foto {
     width: 100%;
-    height: 250px;
+    height: 280px;
     overflow: hidden;
+    position: relative;
 }
 
 .membro-foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 20%;
     transition: transform 0.3s ease;
 }
 
@@ -447,6 +449,10 @@ body {
 .membro-info {
     padding: 25px;
     text-align: center;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .membro-info h3 {
@@ -466,6 +472,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: auto;
 }
 
 .membro-social a {
@@ -478,6 +485,7 @@ body {
     justify-content: center;
     color: #666;
     transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .membro-social a:hover {
@@ -647,6 +655,24 @@ body {
 }
 
 /* Responsividade */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-content {
+        gap: 40px;
+    }
+    
+    .sobre-content {
+        gap: 40px;
+    }
+    
+    .servicos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -666,6 +692,10 @@ body {
         font-size: 2.5rem;
     }
     
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
     .sobre-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -678,14 +708,73 @@ body {
     
     .servicos-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .servico-card {
+        padding: 30px;
     }
     
     .equipe-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .membro-foto {
+        height: 260px;
     }
     
     .section-title {
         font-size: 2rem;
+    }
+    
+    .section {
+        padding: 80px 0;
+    }
+    
+    .video-container {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .servico-card {
+        padding: 25px;
+    }
+    
+    .membro-card {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+    
+    .membro-foto {
+        height: 240px;
+    }
+    
+    .contato-item {
+        padding: 20px;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
     }
 }
 
@@ -695,7 +784,7 @@ body {
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .section {
@@ -704,6 +793,52 @@ body {
     
     .container {
         padding: 0 15px;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .servico-card {
+        padding: 20px;
+    }
+    
+    .membro-foto {
+        height: 220px;
+    }
+    
+    .membro-info {
+        padding: 20px;
+    }
+    
+    .membro-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contato-item {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .contato-item i {
+        font-size: 1.2rem;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav-logo img {
+        width: 30px;
+        height: 30px;
     }
 }
 

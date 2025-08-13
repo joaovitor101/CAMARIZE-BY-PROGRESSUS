@@ -379,6 +379,16 @@ style.textContent = `
         background: white;
         padding: 20px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        gap: 15px;
+    }
+    
+    .nav-menu.active .nav-link {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active .nav-link:last-child {
+        border-bottom: none;
     }
     
     .nav-toggle.active span:nth-child(1) {
